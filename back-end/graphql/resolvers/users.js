@@ -46,7 +46,7 @@ module.exports = {
       const token = generateToken(user);
 
       return {
-        ...user._doc,
+    
         token,
         user: {
           id: user._id,
@@ -91,11 +91,11 @@ module.exports = {
       const token = generateToken(res);
 
       return {
-        ...user._doc,
+    
         token,
         user: {
-          id: user._id,
-          name:user.name
+          id: res._id,
+          name:res.name
         }
       };
     }

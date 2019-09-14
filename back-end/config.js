@@ -1,4 +1,4 @@
 module.exports={
-    MONGODB:'mongodb://admin:A7med2008@ds263127.mlab.com:63127/graphqltut',
+    MONGODB:'mongodb://admin:admin123@ds119795.mlab.com:19795/scout_base_challange',
     SECRET_KEY:'uh4ficnjksawe3'
 };
