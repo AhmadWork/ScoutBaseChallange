@@ -30,7 +30,9 @@ module.exports={
         },
         async directors(){
             try {
-                const directors =[{name:"Quentin Tarantino",birthday:"March 27, 1963",country:"USA"},{name:"Christopher Nolan",birthday:"July 30, 1970 ",country:"England"},{name:"Francis Ford Coppola",birthday:"April 7, 1939",country:"USA"}]
+                const directors =[{name:"Quentin Tarantino",birthday:"March 27, 1963",country:"USA"},
+                {name:"Christopher Nolan",birthday:"July 30, 1970 ",country:"England"},
+                {name:"Francis Ford Coppola",birthday:"April 7, 1939",country:"USA"}]
                 return directors;
             
             } catch (error) {

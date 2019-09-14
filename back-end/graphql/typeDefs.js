@@ -3,24 +3,21 @@ const { gql } = require('apollo-server');
 module.exports = gql`
   directive @auth on FIELD_DEFINITION
  type Movie {
-    id: ID!
     title: String!
     year: String!
-    rating: Int!
+    rating: Float!
     scoutbase_rating:Float! @auth 
     
   }
   type Actor {
-      id:ID!
       name:String!
       birthday:String!
       country:String
   }
   type Director {
-      id:ID!
       name:String!
-      country:String!
       birthday:String!
+      country:String!
       
   }
   type User {
