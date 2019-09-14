@@ -1,12 +1,13 @@
 const { gql } = require('apollo-server');
 
 module.exports = gql`
-  type Movie {
+  directive @auth on FIELD_DEFINITION
+ type Movie {
     id: ID!
     title: String!
     year: String!
     rating: Int!
-    scoutbase_rating:Int!
+    scoutbase_rating:Float! @auth 
     
   }
   type Actor {
@@ -24,7 +25,6 @@ module.exports = gql`
   }
   type User {
     id: ID!
-    email: String!
     token: String!
     username: String!
     createdAt: String!

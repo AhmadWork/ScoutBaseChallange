@@ -3,27 +3,14 @@ const{AuthenticationError,UserInputError} = require('apollo-server')
 
 module.exports={
     Query: {
-        async movies(context) {
-            const user = checkAuth(context);
+        async movies() {
+           
          try{
-            const movies = [{ 
-                title: "once ubon time",
-                year: "2019",
-                rating:4
-                },{title: "once ubon timae",
-            year: 3,
-            rating: "2d0"},{title: "once ubonas time",
-            year: "20ds19",
-            rating: 1}]
-          if(!user){
-            for (let value of movies) {
-                value.scoutbase_rating=Math.floor(Math.random() * 5) + 5;
-            }
+            const movies = [{ title: "Joker",year: "2019",rating:9.6},
+            {title: "Once Upon a Time... in Hollywood", year: "2019",rating: 8.0},
+                {title: "It Chapter Two",year: "2019",rating:7.0}]
+         
           return movies;
-          }else{
-            
-            return movies;
-          }
         
           } catch (err) {
             throw new Error(err);
@@ -31,7 +18,9 @@ module.exports={
         },
         async actors(){
             try {
-                const actors =[{},{},{}]
+                const actors =[{name:"Leonardo DiCaprio",birthday:" November 11, 1974",country:"USA"},
+                {name:"Brad Pitt",birthday:"December 18, 1963 ",country:"USA"},
+                {name:"Margot Robbie",birthday:" July 2, 1990",country:"Australia"}]
                 return actors;
             
             } catch (error) {
@@ -41,7 +30,7 @@ module.exports={
         },
         async directors(){
             try {
-                const directors =[{country:"a",name:"am",birthday:"ruh"},{country:"aa",name:"asm",birthday:"ruhf"},{country:"asda",name:"aasdm",birthday:"rasuh"}]
+                const directors =[{name:"Quentin Tarantino",birthday:"March 27, 1963",country:"USA"},{name:"Christopher Nolan",birthday:"July 30, 1970 ",country:"England"},{name:"Francis Ford Coppola",birthday:"April 7, 1939",country:"USA"}]
                 return directors;
             
             } catch (error) {

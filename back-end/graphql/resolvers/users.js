@@ -47,22 +47,23 @@ module.exports = {
 
       return {
         ...user._doc,
-        id: user._id,
-        token
+        token,
+        user: {
+          id: user._id,
+          name:user.name
+        }
       };
     },
     async register(
       _,
       {
-        registerInput: { username, email, password, confirmPassword }
+        registerInput: { username, password }
       }
     ) {
       // Validate user data
       const { valid, errors } = validateRegisterInput(
         username,
-        email,
-        password,
-        confirmPassword
+        password
       );
       if (!valid) {
         throw new UserInputError('Errors', { errors });
@@ -80,7 +81,6 @@ module.exports = {
       password = await bcrypt.hash(password, 12);
 
       const newUser = new User({
-        email,
         username,
         password,
         createdAt: new Date().toISOString()
@@ -91,9 +91,12 @@ module.exports = {
       const token = generateToken(res);
 
       return {
-        ...res._doc,
-        id: res._id,
-        token
+        ...user._doc,
+        token,
+        user: {
+          id: user._id,
+          name:user.name
+        }
       };
     }
   }
